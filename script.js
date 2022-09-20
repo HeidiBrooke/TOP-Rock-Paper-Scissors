@@ -26,10 +26,10 @@ function playRound(){
     
 
 //get the users play
-    //getPlayerChoice();
+    getPlayerChoice();
 
 //calculate the winner
-    //findWinner();
+    // findWinner();
 
 //store the winner results for the round
     //storeWinner();
@@ -49,10 +49,27 @@ function getComputerChoice(){
     let randomIndex = getRandomIntof3();
     //return the computers choice and store it
     let computerChoice = playsArray[randomIndex];
+    let notifyCompChoice = "The computer has made a choice.";
+    console.log(notifyCompChoice);
     return computerChoice;
 }
 
-//function getPlayerChoice
+function getPlayerChoice () {
+    //prompt user to enter their choice and store input
+    //convert to lower case
+    let userPlayPrompt = "What'll be -- Rock, Paper or Scissors?";
+    let userChoice = prompt(userPlayPrompt, "").toLowerCase();
+    //return value
+    return userChoice;
+}
+
+// function findWinner(){
+//     let computerChoice = getComputerChoice();
+//     let playerChoice = getPlayerChoice();
+//     switch (computerChoice === "rock")
+    
+
+// }
 //repeat steps up to five times
 
 //after 5 rounds are played display the round results
