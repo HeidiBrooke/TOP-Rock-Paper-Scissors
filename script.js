@@ -3,14 +3,17 @@
 
 //dislay a message that a 5 round game of rock paper scissors has begun
 //begin when the user answers ready
+document.addEventListener("DOMContentLoaded", start);
 
-let startMessage = "A five round game of Rock-paper-scissors is about to begin! Are you ready?"
-let readyInput = prompt(startMessage, "Y/N");
-if (readyInput === "y" || readyInput === "Y") {
-    game();
-}
-else {
-    console.log("No problem! Refresh the page and enter 'Y' when you're ready!");
+function start(){
+    let startMessage = "A five round game of Rock-paper-scissors is about to begin! Are you ready?"
+    let readyInput = prompt(startMessage, "Y/N");
+    if (readyInput === "y" || readyInput === "Y") {
+        game();
+    }
+    else {
+        console.log("No problem! Refresh the page and enter 'Y' when you're ready!");
+    }
 }
 
 //Begin the game
