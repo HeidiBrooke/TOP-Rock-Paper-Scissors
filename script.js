@@ -9,38 +9,21 @@ let readyInput = prompt(startMessage, "Y/N");
 if (readyInput === "y" || readyInput === "Y") {
     game();
 }
+else {
+    console.log("No problem! Refresh the page and enter 'Y' when you're ready!");
+}
 
 //Begin the game
 
 function game() {
+    let tally = ["", "", "", "", ""];
     for (i = 0; i < 5; i++){
-        playRound();
+        tally[i] = playRound();
+        let result = tally[i];
+        console.log("Round " + (i +1 ) + " is done here comes the next!")
     }
+    console.log("Here are the results of this game: " + tally);
 }
-
-//Begin the round
-function playRound(){
-
-//get a computer play and notify the user
-    // console.log(getComputerChoice());
-    
-
-//get the users play
-    // getPlayerChoice();
-
-//calculate the winner
-    findWinner();
-
-//store the winner results for the round
-    //storeWinner();
-
-//display the results to the user
-
-//notify the second round is beginning
-
-}
-
-
 
 function getComputerChoice(){
     //define consts rock paper scissors that correlate to a number (array with index)
@@ -63,13 +46,9 @@ function getPlayerChoice () {
     return userChoice;
 }
 
-let tally = ["", "", "", "", ""];
-
-function findWinner(){
+function playRound(){
     let computerChoice = getComputerChoice();
-    console.log(computerChoice);
     let playerChoice = getPlayerChoice();
-    console.log(playerChoice);
     let result = "unkown";
     switch (computerChoice) {
         case "rock":
@@ -112,11 +91,10 @@ function findWinner(){
             }
         break;
     }
-    console.log(result);
+    console.log ("You: " + playerChoice + ", Comp: " + computerChoice + ", Result: " + result);
+    return result;
 }
-//repeat steps up to five times
 
-//after 5 rounds are played display the round results
 function getRandomIntof3() {
     return Math.floor(Math.random() * 3);
 }
