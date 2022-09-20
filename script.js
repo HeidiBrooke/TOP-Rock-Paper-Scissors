@@ -22,14 +22,14 @@ function game() {
 function playRound(){
 
 //get a computer play and notify the user
-    console.log(getComputerChoice());
+    // console.log(getComputerChoice());
     
 
 //get the users play
-    getPlayerChoice();
+    // getPlayerChoice();
 
 //calculate the winner
-    // findWinner();
+    findWinner();
 
 //store the winner results for the round
     //storeWinner();
@@ -63,13 +63,57 @@ function getPlayerChoice () {
     return userChoice;
 }
 
-// function findWinner(){
-//     let computerChoice = getComputerChoice();
-//     let playerChoice = getPlayerChoice();
-//     switch (computerChoice === "rock")
-    
+let tally = ["", "", "", "", ""];
 
-// }
+function findWinner(){
+    let computerChoice = getComputerChoice();
+    console.log(computerChoice);
+    let playerChoice = getPlayerChoice();
+    console.log(playerChoice);
+    let result = "unkown";
+    switch (computerChoice) {
+        case "rock":
+            switch (playerChoice) {
+                case "rock":
+                    result = "tie";
+                    break;
+                case "paper":
+                    result = "user win";
+                    break;
+                case "scissors":
+                    result = "computer win"
+                    break;
+            }
+        break;
+        case "paper":
+            switch (playerChoice) {
+                case "rock":
+                    result = "computer win";
+                    break;
+                case "paper":
+                    result = "tie";
+                    break;
+                case "scissors":
+                    result = "user win"
+                    break;
+            }
+        break;
+        case "scissors":
+            switch (playerChoice) {
+                case "rock":
+                    result = "user win";
+                    break;
+                case "paper":
+                    result = "computer win";
+                    break;
+                case "scissors":
+                    result = "tie"
+                    break;
+            }
+        break;
+    }
+    console.log(result);
+}
 //repeat steps up to five times
 
 //after 5 rounds are played display the round results
