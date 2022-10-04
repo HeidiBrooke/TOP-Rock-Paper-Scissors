@@ -16,7 +16,7 @@ function playRound(e){
     let playerChoice = e.target.value;
     
     
-    let result = "unkown";
+    let result = "Try pressing one of the buttons!";
     switch (computerChoice) {
         case "rock":
             switch (playerChoice) {
@@ -58,7 +58,9 @@ function playRound(e){
             }
         break;
     }
-    console.log ("You: " + playerChoice + ", Comp: " + computerChoice + ", Result: " + result);
+    //console.log ("You: " + playerChoice + ", Comp: " + computerChoice + ", Result: " + result);
+    const divResults = document.getElementById('results');
+    divResults.textContent = "You: "+ playerChoice + " Comp: " + computerChoice + " Results: " + result;
     return result;
 }
 
