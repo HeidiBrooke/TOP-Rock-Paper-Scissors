@@ -1,3 +1,6 @@
+let playerPoints = 0;
+let compPoints = 0;
+
 function getComputerChoice(){
     //define consts rock paper scissors that correlate to a number (array with index)
     const playsArray = ["rock", "paper", "scissors"];
@@ -14,8 +17,6 @@ function getComputerChoice(){
 function playRound(e){
     let computerChoice = getComputerChoice();
     let playerChoice = e.target.value;
-    
-    
     let result = "Try pressing one of the buttons!";
     switch (computerChoice) {
         case "rock":
@@ -58,6 +59,7 @@ function playRound(e){
             }
         break;
     }
+
     //console.log ("You: " + playerChoice + ", Comp: " + computerChoice + ", Result: " + result);
     const divResults = document.getElementById('results');
     divResults.textContent = "You: "+ playerChoice + " Comp: " + computerChoice + " Results: " + result;
@@ -68,4 +70,28 @@ function getRandomIntof3() {
     return Math.floor(Math.random() * 3);
 }
 
-window.addEventListener('click', playRound);
+
+function tallyWinner(e){
+    const divTally = document.getElementById('tally'); 
+    let winner = playRound(e);
+    if (playerPoints === 5){
+        return divTally.textContent = "Player: " + playerPoints +"/5 Comp: " + compPoints + "/5 Game finished! You win! Refresh to restart.";
+    }
+    else if (compPoints === 5){
+        return divTally.textContent = "Player: " + playerPoints +"/5 Comp: " + compPoints + "/5 Game finished! Computer wins! Refresh to restart.";
+    }
+    switch (winner) {
+        case "user win":
+            playerPoints += 1;
+            console.log(compPoints, playerPoints);
+            break;
+        case "computer win":
+                compPoints += 1;
+                console.log(compPoints, playerPoints);
+                break;
+        }
+    divTally.textContent = "Player: " + playerPoints +"/5 Comp: " + compPoints + "/5";
+    //console.log(compPoints, playerPoints);
+    return 0;
+}
+window.addEventListener('click', tallyWinner);
